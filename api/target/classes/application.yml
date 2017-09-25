@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: springboot
+  datasource:
+    url: jdbc:mysql://47.92.32.170:3306/yanggy
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    initialSize: 1
+    minIdle: 1
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    type: com.alibaba.druid.pool.DruidDataSource
+mybatis:
+  mapper-locations: classpath:sql-mapper/*.xml
+
+
+server:
+  port: 1992
+
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false
