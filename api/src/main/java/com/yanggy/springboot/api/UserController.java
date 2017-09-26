@@ -24,7 +24,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @ApiOperation(value = "用户登录接口")
     @RequestMapping(value = "/auth/login", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(
             @ApiParam @RequestBody JwtAuthenticationRequest authenticationRequest) throws AuthenticationException{
@@ -32,13 +31,11 @@ public class UserController {
         return userService.login(authenticationRequest.getUsername(), authenticationRequest.getPassword());
     }
 
-    @ApiOperation(value = "用户注册接口")
     @RequestMapping(value = "/auth/register", method = RequestMethod.POST)
-    public ResponseEntity<?> register(@ApiParam @RequestBody User addedUser) throws AuthenticationException {
-        return userService.register(addedUser);
+    public ResponseEntity<?> register(@ApiParam @RequestBody User user) throws AuthenticationException {
+        return userService.register(user);
     }
 
-    @ApiOperation(value = "用户列表接口")
     @RequestMapping(value = "/user/userList", method = RequestMethod.POST)
     public ResponseEntity<?> getUsers(@ApiParam @RequestBody UserParam userParam) throws AuthenticationException {
         return userService.getUsers();

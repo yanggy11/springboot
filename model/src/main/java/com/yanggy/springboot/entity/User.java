@@ -13,9 +13,7 @@ import java.util.List;
  */
 
 @Data
-@ApiModel(value="用户", description="Model for showing user details")
 public class User implements Serializable {
-    @ApiModelProperty(value = "id", allowableValues = "MALE, FEMALE")
     private long id;
     private String name;
     private String password;
