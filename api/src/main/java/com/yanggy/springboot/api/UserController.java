@@ -21,9 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
-    @Value("${jwt.header}")
-    private String tokenHeader;
-
     @Autowired
     private UserService userService;
 
@@ -33,18 +30,6 @@ public class UserController {
         final String token = userService.login(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
         return ResponseEntity.ok(new JwtAuthenticationResponse(token));
-    }
-
-    @RequestMapping(value = "${jwt.route.authentication.refresh}", method = RequestMethod.GET)
-    public ResponseEntity<?> refreshAndGetAuthenticationToken(
-            HttpServletRequest request) throws AuthenticationException{
-        String token = request.getHeader(tokenHeader);
-        String refreshedToken = userService.refresh(token);
-        if(refreshedToken == null) {
-            return ResponseEntity.badRequest().body(null);
-        } else {
-            return ResponseEntity.ok(new JwtAuthenticationResponse(refreshedToken));
-        }
     }
 
     @RequestMapping(value = "/auth/register", method = RequestMethod.POST)

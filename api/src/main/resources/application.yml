@@ -19,6 +19,7 @@ mybatis:
 server:
   port: 1992
 
+#jwt parameters
 jwt:
   header: Authorization
   secret: mySecret
@@ -29,4 +30,11 @@ jwt:
       path: auth
       refresh: refresh
       register: "auth/register"
+
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false
 
