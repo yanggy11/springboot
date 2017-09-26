@@ -1,5 +1,6 @@
 package com.yanggy.springboot.api;
 
+import com.yanggy.springboot.dto.UserParam;
 import com.yanggy.springboot.entity.User;
 import com.yanggy.springboot.jwt.JwtAuthenticationRequest;
 import com.yanggy.springboot.jwt.JwtAuthenticationResponse;
@@ -51,7 +52,7 @@ public class UserController {
         return userService.register(addedUser);
     }
     @RequestMapping(value = "/user/userList", method = RequestMethod.POST)
-    public Object getUsers() throws AuthenticationException {
+    public Object getUsers(@RequestBody UserParam userParam) throws AuthenticationException {
         return userService.getUsers();
     }
 }
