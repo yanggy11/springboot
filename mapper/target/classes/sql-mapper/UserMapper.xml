@@ -27,4 +27,15 @@
     <select id="getUserList" resultMap="userMap">
         select id, name,password,sex,age from users
     </select>
+
+    <select id="getUserRoles" parameterType="java.lang.Long" resultType="java.lang.String">
+        select r.role from role r left join user_role ur on r.id = ur.role_id where ur.user_id = #{userId}
+    </select>
+
+    <insert id="insertUserRole" parameterType="java.util.List">
+        insert into user_role(user_id, role_id) values
+        <foreach collection="list" item="item"  index="index" separator=",">
+            (#{userId},#{roleId})
+        </foreach>
+    </insert>
 </mapper>

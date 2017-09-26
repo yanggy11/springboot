@@ -9,4 +9,5 @@ public interface UserService {
     User register(User userToAdd);
     String login(String username, String password);
     String refresh(String oldToken);
+    Object getUsers();
 }

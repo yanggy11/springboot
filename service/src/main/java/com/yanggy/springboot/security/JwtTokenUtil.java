@@ -40,6 +40,10 @@ public class JwtTokenUtil implements Serializable {
         return username;
     }
 
+    public Long getUserIdFromToken(String token) {
+        return (Long) getClaimsFromToken(token).get("userId");
+    }
+
     public Date getCreatedDateFromToken(String token) {
         Date created;
         try {
@@ -88,8 +92,10 @@ public class JwtTokenUtil implements Serializable {
         return (lastPasswordReset != null && created.before(lastPasswordReset));
     }
 
-    public String generateToken(UserDetails userDetails) {
+    public String generateToken(JWTUser userDetails) {
         Map<String, Object> claims = new HashMap<>();
+        claims.put("userId", userDetails.getUserId());
+        claims.put("roles", userDetails.getAuthorities());
         claims.put(CLAIM_KEY_USERNAME, userDetails.getUsername());
         claims.put(CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);
