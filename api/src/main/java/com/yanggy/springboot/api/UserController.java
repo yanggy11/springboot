@@ -46,7 +46,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "${jwt.route.authentication.register}", method = RequestMethod.POST)
+    @RequestMapping(value = "/auth/register", method = RequestMethod.POST)
     public User register(@RequestBody User addedUser) throws AuthenticationException {
         return userService.register(addedUser);
     }

@@ -8,6 +8,7 @@ import com.yanggy.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -43,9 +44,9 @@ public class UserServiceImpl implements UserService {
         if(userMapper.findByName(username)!=null) {
             return null;
         }
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        Md5PasswordEncoder encoder = new Md5PasswordEncoder();
         final String rawPassword = user.getPassword();
-        user.setPassword(encoder.encode(rawPassword));
+        user.setPassword(encoder.encodePassword(user.getPassword(), user.getName()));
         user.setLastPasswordResetDate(new Date());
         userMapper.insertUser(user);
 
