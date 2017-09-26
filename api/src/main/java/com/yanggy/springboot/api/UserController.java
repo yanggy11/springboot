@@ -5,9 +5,11 @@ import com.yanggy.springboot.entity.User;
 import com.yanggy.springboot.jwt.JwtAuthenticationRequest;
 import com.yanggy.springboot.jwt.JwtAuthenticationResponse;
 import com.yanggy.springboot.service.UserService;
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,20 +26,20 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @ApiOperation("用户登录")
     @RequestMapping(value = "/auth/login", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(
-            @RequestBody JwtAuthenticationRequest authenticationRequest) throws AuthenticationException{
-        final String token = userService.login(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+            @ApiParam @RequestBody JwtAuthenticationRequest authenticationRequest) throws AuthenticationException{
 
-        return ResponseEntity.ok(new JwtAuthenticationResponse(token));
+        return userService.login(authenticationRequest.getUsername(), authenticationRequest.getPassword());
     }
 
     @RequestMapping(value = "/auth/register", method = RequestMethod.POST)
-    public User register(@RequestBody User addedUser) throws AuthenticationException {
+    public ResponseEntity<?> register(@ApiParam @RequestBody User addedUser) throws AuthenticationException {
         return userService.register(addedUser);
     }
     @RequestMapping(value = "/user/userList", method = RequestMethod.POST)
-    public Object getUsers(@RequestBody UserParam userParam) throws AuthenticationException {
+    public ResponseEntity<?> getUsers(@ApiParam @RequestBody UserParam userParam) throws AuthenticationException {
         return userService.getUsers();
     }
 }

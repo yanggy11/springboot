@@ -1,11 +1,11 @@
 package com.yanggy.springboot.aop;
 
-import com.yanggy.springboot.Utils.ResponseEntity;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.json.JSONObject;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 /**
@@ -36,9 +36,9 @@ public class AopException {
 
     private Object mapResponse(Object methodResult, Throwable e) {
         if(null != e) {
-            return new ResponseEntity("0","01000001",e.getMessage());
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity(methodResult);
+        return methodResult;
     }
 
 }

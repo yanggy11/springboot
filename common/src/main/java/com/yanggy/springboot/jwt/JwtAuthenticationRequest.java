@@ -1,5 +1,7 @@
 package com.yanggy.springboot.jwt;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 /**
@@ -10,7 +12,9 @@ public class  JwtAuthenticationRequest implements Serializable {
 
     private static final long serialVersionUID = -8445943548965154778L;
 
+    @ApiModelProperty(value = "用户姓名")
     private String username;
+    @ApiModelProperty(value = "登录密码")
     private String password;
 
     public JwtAuthenticationRequest() {
