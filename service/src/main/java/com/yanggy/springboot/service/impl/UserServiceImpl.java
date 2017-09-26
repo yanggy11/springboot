@@ -1,10 +1,9 @@
 package com.yanggy.springboot.service.impl;
 
 import com.yanggy.springboot.entity.User;
-import com.yanggy.springboot.entity.UserRole;
 import com.yanggy.springboot.mapper.UserMapper;
-import com.yanggy.springboot.security.JWTUser;
-import com.yanggy.springboot.security.JwtTokenUtil;
+import com.yanggy.springboot.jwt.JWTUser;
+import com.yanggy.springboot.jwt.JwtTokenUtil;
 import com.yanggy.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,9 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by yangguiyun on 2017/9/26.

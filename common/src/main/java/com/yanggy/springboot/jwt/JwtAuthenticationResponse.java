@@ -1,4 +1,4 @@
-package com.yanggy.springboot.security;
+package com.yanggy.springboot.jwt;
 
 import java.io.Serializable;
 /**

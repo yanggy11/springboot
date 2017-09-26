@@ -1,8 +1,8 @@
 package com.yanggy.springboot.api;
 
 import com.yanggy.springboot.entity.User;
-import com.yanggy.springboot.security.JwtAuthenticationRequest;
-import com.yanggy.springboot.security.JwtAuthenticationResponse;
+import com.yanggy.springboot.jwt.JwtAuthenticationRequest;
+import com.yanggy.springboot.jwt.JwtAuthenticationResponse;
 import com.yanggy.springboot.service.UserService;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;

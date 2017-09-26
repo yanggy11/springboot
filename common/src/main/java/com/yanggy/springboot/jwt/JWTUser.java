@@ -1,4 +1,4 @@
-package com.yanggy.springboot.security;
+package com.yanggy.springboot.jwt;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
