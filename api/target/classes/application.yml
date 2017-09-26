@@ -20,9 +20,3 @@ mybatis:
 server:
   port: 1992
 
-security:
-  basic:
-    enabled: false
-management:
-  security:
-    enabled: false

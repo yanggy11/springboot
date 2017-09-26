@@ -27,4 +27,8 @@
     <select id="getUserList" resultMap="userMap">
         select id, name,password,sex,age from users
     </select>
+
+    <select id="getUserRoles" parameterType="java.lang.Long" resultType="java.lang.String">
+        select r.role from role r left join user_role ur on r.id = ur.role_id where ur.user_id = #{userId}
+    </select>
 </mapper>

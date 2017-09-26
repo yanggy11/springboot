@@ -18,4 +18,5 @@ public interface UserMapper {
     User findByName(@Param("username") String name);
     User findByNameAndPassword(@Param("username") String username, @Param("password") String password);
     List<User> getUserList();
+    List<String>getUserRoles(@Param("userId") Long userId);
 }

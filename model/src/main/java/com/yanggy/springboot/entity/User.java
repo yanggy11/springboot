@@ -1,6 +1,8 @@
 package com.yanggy.springboot.entity;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by yangguiyun on 2017/6/1.
@@ -12,6 +14,9 @@ public class User implements Serializable {
     private String password;
     private int sex;
     private int age;
+    private String email;
+    private Date lastPasswordResetDate;
+    private List<String> roles;
 
     public long getId() {
         return id;
@@ -51,5 +56,29 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getLastPasswordResetDate() {
+        return lastPasswordResetDate;
+    }
+
+    public void setLastPasswordResetDate(Date lastPasswordResetDate) {
+        this.lastPasswordResetDate = lastPasswordResetDate;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
     }
 }

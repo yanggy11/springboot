@@ -16,13 +16,17 @@ spring:
 mybatis:
   mapper-locations: classpath:sql-mapper/*.xml
 
-
 server:
   port: 1992
 
-security:
-  basic:
-    enabled: false
-management:
-  security:
-    enabled: false
+jwt:
+  header: Authorization
+  secret: mySecret
+  expiration: 604800
+  tokenHead: "Bearer "
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
+      register: "auth/register"
+
