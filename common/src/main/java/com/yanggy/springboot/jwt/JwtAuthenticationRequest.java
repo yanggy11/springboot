@@ -1,5 +1,6 @@
 package com.yanggy.springboot.jwt;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
@@ -8,6 +9,7 @@ import java.io.Serializable;
  * Created by yangguiyun on 2017/9/26.
  */
 
+@ApiModel
 public class  JwtAuthenticationRequest implements Serializable {
 
     private static final long serialVersionUID = -8445943548965154778L;
