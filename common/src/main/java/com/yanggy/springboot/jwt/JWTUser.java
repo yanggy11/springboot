@@ -14,6 +14,7 @@ public class JWTUser implements UserDetails {
     private  String username;
     private  String password;
     private  String email;
+    private  String phone;
     private  Collection<? extends GrantedAuthority> authorities;
     private  Date lastPasswordResetDate;
     public JWTUser(

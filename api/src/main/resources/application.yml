@@ -22,7 +22,7 @@ server:
 #jwt parameters
 jwt:
   header: Authorization
-  secret: mySecret
+  secret: derrick.yang
   expiration: 604800
   tokenHead: "Bearer "
   route:

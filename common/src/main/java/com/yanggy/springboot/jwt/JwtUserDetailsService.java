@@ -23,7 +23,7 @@ public class JwtUserDetailsService implements UserDetailsService {
         if(null == user) {
             throw  new UsernameNotFoundException(String.format("No user found with username '%s'.", name));
         }
-        user.setRoles(userMapper.getUserRoles(user.getId()));
-        return JwtUserFactory.create(user);
+
+        return JwtUserFactory.create(user,userMapper.getUserRoles(user.getId()));
     }
 }

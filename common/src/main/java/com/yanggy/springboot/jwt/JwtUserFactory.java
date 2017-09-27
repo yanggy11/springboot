@@ -14,14 +14,14 @@ public class JwtUserFactory {
     private JwtUserFactory() {
     }
 
-    public static JWTUser create(User user) {
+    public static JWTUser create(User user, List<String>roles) {
         return new JWTUser(
                 user.getId(),
                 user.getName(),
                 user.getPassword(),
                 user.getEmail(),
-                mapToGrantedAuthorities(user.getRoles()),
-                user.getLastPasswordResetDate()
+                mapToGrantedAuthorities(roles),
+               null
         );
     }
 

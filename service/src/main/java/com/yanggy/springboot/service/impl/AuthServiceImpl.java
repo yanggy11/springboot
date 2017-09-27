@@ -50,7 +50,6 @@ public class AuthServiceImpl implements AuthService {
         Md5PasswordEncoder encoder = new Md5PasswordEncoder();
         final String rawPassword = user.getPassword();
         user.setPassword(encoder.encodePassword(user.getPassword(), user.getName()));
-        user.setLastPasswordResetDate(new Date());
         userMapper.insertUser(user);
 
         return new ResponseEntity(HttpStatus.OK);
