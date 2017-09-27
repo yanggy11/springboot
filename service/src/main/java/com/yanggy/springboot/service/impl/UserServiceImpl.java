@@ -34,6 +34,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseEntity<?> getUsers() {
+        System.out.println(SecurityContextHolder.getContext().getAuthentication());
         return new ResponseEntity<Object>(userMapper.getUserList(),HttpStatus.OK);
     }
 }

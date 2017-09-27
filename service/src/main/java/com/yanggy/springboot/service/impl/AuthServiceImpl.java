@@ -26,7 +26,7 @@ import java.util.Date;
  */
 
 @Transactional
-@Service("userService")
+@Service("authService")
 public class AuthServiceImpl implements AuthService {
 
     @Resource
@@ -60,7 +60,6 @@ public class AuthServiceImpl implements AuthService {
     public ResponseEntity<?> login(String username, String password) {
         UsernamePasswordAuthenticationToken upToken = new UsernamePasswordAuthenticationToken(username, password);
         final Authentication authentication = authenticationManager.authenticate(upToken);
-        SecurityContextHolder.getContext().setAuthentication(authentication);
 
         final UserDetails userDetails = userDetailsService.loadUserByUsername(username);
         JWTUser jwtUser = (JWTUser) userDetails;
