@@ -29,45 +29,8 @@ import java.util.Date;
 @Transactional
 @Service("userService")
 public class UserServiceImpl implements UserService {
-
-    @Resource
-    private AuthenticationManager authenticationManager;
-    @Resource
-    private UserDetailsService userDetailsService;
-    @Resource
-    private JwtTokenUtil jwtTokenUtil;
     @Resource
     private UserMapper userMapper;
-
-    @Value("${jwt.tokenHead}")
-    private String tokenHead;
-
-    @Override
-    public ResponseEntity<?> register(User user) {
-        final String username = user.getName();
-        if(userMapper.findByName(username)!=null) {
-            return new ResponseEntity<Object>(HttpStatus.CONTINUE);
-        }
-        Md5PasswordEncoder encoder = new Md5PasswordEncoder();
-        final String rawPassword = user.getPassword();
-        user.setPassword(encoder.encodePassword(user.getPassword(), user.getName()));
-        user.setLastPasswordResetDate(new Date());
-        userMapper.insertUser(user);
-
-        return new ResponseEntity(HttpStatus.OK);
-    }
-
-    @Override
-    public ResponseEntity<?> login(String username, String password) {
-        UsernamePasswordAuthenticationToken upToken = new UsernamePasswordAuthenticationToken(username, password);
-        final Authentication authentication = authenticationManager.authenticate(upToken);
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-        JWTUser jwtUser = (JWTUser) userDetails;
-        final String token = jwtTokenUtil.generateToken(jwtUser);
-        return new ResponseEntity<Object>(this.tokenHead + token, HttpStatus.OK);
-    }
 
     @Override
     public ResponseEntity<?> getUsers() {
