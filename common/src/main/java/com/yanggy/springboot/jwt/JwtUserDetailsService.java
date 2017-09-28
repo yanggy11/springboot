@@ -19,11 +19,16 @@ public class JwtUserDetailsService implements UserDetailsService {
     private UserMapper userMapper;
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        User user = userMapper.findByName(name);
+        User user = new User();
+        try {
+            user = userMapper.findByName(name);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
         if(null == user) {
             throw  new UsernameNotFoundException(String.format("No user found with username '%s'.", name));
         }
-        user.setRoles(userMapper.getUserRoles(user.getId()));
-        return JwtUserFactory.create(user);
+
+        return JwtUserFactory.create(user,userMapper.getUserRoles(user.getId()));
     }
 }

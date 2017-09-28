@@ -1,8 +1,6 @@
 package com.yanggy.springboot.api;
 
 import com.yanggy.springboot.dto.UserParam;
-import com.yanggy.springboot.entity.User;
-import com.yanggy.springboot.jwt.JwtAuthenticationRequest;
 import com.yanggy.springboot.service.UserService;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,23 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
+@RequestMapping("/user/**")
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/auth/login", method = RequestMethod.POST)
-    public ResponseEntity<?> createAuthenticationToken(
-            @ApiParam @RequestBody JwtAuthenticationRequest authenticationRequest) throws AuthenticationException{
-
-        return userService.login(authenticationRequest.getUsername(), authenticationRequest.getPassword());
-    }
-
-    @RequestMapping(value = "/auth/register", method = RequestMethod.POST)
-    public ResponseEntity<?> register(@ApiParam @RequestBody User user) throws AuthenticationException {
-        return userService.register(user);
-    }
-
-    @RequestMapping(value = "/user/userList", method = RequestMethod.POST)
+    @RequestMapping(value = "userList", method = RequestMethod.POST)
     public ResponseEntity<?> getUsers(@ApiParam @RequestBody UserParam userParam) throws AuthenticationException {
         return userService.getUsers();
     }

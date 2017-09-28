@@ -28,6 +28,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource
     private UserDetailsService userDetailsService;
 
+    /**
+     * 设置认证方式以及密码加密算法
+     * @param authenticationManagerBuilder
+     * @throws Exception
+     */
     @Autowired
     public void configureAuthentication(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
         authenticationManagerBuilder
@@ -55,19 +60,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // 基于token，所以不需要session
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
-                .antMatchers(
-                        HttpMethod.GET,
-                        "/",
-                        "/*.html",
-                        "/favicon.ico",
-                        "/**/*.html",
-                        "/**/*.css",
-                        "/**/*.js",
-                        "/**/*.png"
-                ).permitAll()
-                .antMatchers("/webjars/**").permitAll()
-                .antMatchers("/swagger-resources/**").permitAll().antMatchers("/v2/api-docs").permitAll()
-                // 对于获取token的rest api要允许匿名访问
+                // swagger权限放开
+//                .antMatchers(
+//                        HttpMethod.GET,
+//                        "/",
+//                        "/*.html",
+//                        "/favicon.ico",
+//                        "/**/*.html",
+//                        "/**/*.css",
+//                        "/**/*.js",
+//                        "/**/*.png"
+//                ).permitAll()
+//                .antMatchers("/webjars/**").permitAll()
+//                .antMatchers("/swagger-resources/**").permitAll().antMatchers("/v2/api-docs").permitAll()
+                // 允许用户登录、注册、退出接口无状态访问
                 .antMatchers("/auth/**").permitAll()
                 // 除上面外的所有请求全部需要鉴权认证
                 .anyRequest().authenticated();

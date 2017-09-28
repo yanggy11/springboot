@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 /**
  * Created by yangguiyun on 2017/9/26.
  */
-public interface UserService {
-    ResponseEntity<?> getUsers();
+public interface AuthService {
+    ResponseEntity<?> register(User userToAdd);
+    ResponseEntity<?> login(String username, String password);
 }
