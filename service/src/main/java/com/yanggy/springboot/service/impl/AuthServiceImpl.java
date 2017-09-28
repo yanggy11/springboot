@@ -25,7 +25,7 @@ import java.util.Date;
  * Created by yangguiyun on 2017/9/26.
  */
 
-@Transactional
+//@Transactional
 @Service("authService")
 public class AuthServiceImpl implements AuthService {
 

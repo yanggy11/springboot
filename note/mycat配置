@@ -36,3 +36,5 @@
 		 <writeHost host="hostM2" url="localhost:3316" user="root" password="123456"/> -->
 	</dataHost>
 </mycat:schema>
+
+注意：要关闭事物，否则读请求会走主库
