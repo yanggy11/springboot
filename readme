@@ -1,0 +1,2 @@
+1. springboot security jwt tokens to secure the rest api
+2. master and slave datasources to implement read and write from different database
