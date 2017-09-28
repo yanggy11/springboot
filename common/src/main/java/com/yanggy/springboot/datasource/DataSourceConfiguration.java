@@ -25,7 +25,7 @@ public class DataSourceConfiguration {
      * @return
      */
     @Bean(name = "masterDataSource", destroyMethod = "close", initMethod = "init")
-    @Primary
+    @Primary// 这个注解表示主数据源
     @ConfigurationProperties(prefix = "master")
     public DataSource masterDatasouce() {
         return new DruidDataSource();
