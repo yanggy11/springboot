@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 com/yanggy/springboot/jwt/JwtUserDetailsService.class
 com/yanggy/springboot/security/WebSecurityConfig.class
 com/yanggy/springboot/jwt/JwtAuthenticationResponse.class
@@ -20,3 +21,22 @@ com/yanggy/springboot/Utils/ResponseEntity.class
 com/yanggy/springboot/datasource/DynamicDataSourceTransactionManager.class
 com/yanggy/springboot/uuid/Sequence.class
 com/yanggy/springboot/uuid/SystemClock$2.class
+=======
+com\yanggy\springboot\jwt\JwtTokenUtil.class
+com\yanggy\springboot\datasource\DataSourceConfiguration.class
+com\yanggy\springboot\swagger\SwaggerConfig.class
+com\yanggy\springboot\jwt\JwtAuthenticationResponse.class
+com\yanggy\springboot\jwt\JwtAuthenticationRequest.class
+com\yanggy\springboot\datasource\DynamicDataSource.class
+com\yanggy\springboot\jwt\JWTUser.class
+com\yanggy\springboot\security\SecurityUtils.class
+com\yanggy\springboot\aop\AopException.class
+com\yanggy\springboot\datasource\DynamicDataSourceHolder.class
+com\yanggy\springboot\datasource\PlatformDynamicDataSourceConfiguration.class
+com\yanggy\springboot\Utils\ResponseEntity.class
+com\yanggy\springboot\datasource\DynamicDataSourceTransactionManager.class
+com\yanggy\springboot\jwt\JwtAuthenticationTokenFilter.class
+com\yanggy\springboot\jwt\JwtUserFactory.class
+com\yanggy\springboot\jwt\JwtUserDetailsService.class
+com\yanggy\springboot\security\WebSecurityConfig.class
+>>>>>>> c442902a8dc1cb10a93339e543cdd81a66e2f97b

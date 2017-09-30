@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /Users/derrick.yang/springcloud/springboot/common/src/main/java/com/yanggy/springboot/aop/AopException.java
 /Users/derrick.yang/springcloud/springboot/common/src/main/java/com/yanggy/springboot/jwt/JwtUserFactory.java
 /Users/derrick.yang/springcloud/springboot/common/src/main/java/com/yanggy/springboot/datasource/DynamicDataSourceTransactionManager.java
@@ -17,3 +18,22 @@
 /Users/derrick.yang/springcloud/springboot/common/src/main/java/com/yanggy/springboot/jwt/JwtUserDetailsService.java
 /Users/derrick.yang/springcloud/springboot/common/src/main/java/com/yanggy/springboot/jwt/JwtAuthenticationResponse.java
 /Users/derrick.yang/springcloud/springboot/common/src/main/java/com/yanggy/springboot/jwt/JwtAuthenticationRequest.java
+=======
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\datasource\DynamicDataSourceHolder.java
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\security\SecurityUtils.java
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\datasource\DynamicDataSourceTransactionManager.java
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\jwt\JwtUserFactory.java
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\jwt\JwtUserDetailsService.java
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\security\WebSecurityConfig.java
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\datasource\PlatformDynamicDataSourceConfiguration.java
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\jwt\JwtAuthenticationResponse.java
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\jwt\JwtTokenUtil.java
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\jwt\JWTUser.java
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\swagger\SwaggerConfig.java
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\jwt\JwtAuthenticationRequest.java
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\aop\AopException.java
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\datasource\DataSourceConfiguration.java
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\Utils\ResponseEntity.java
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\datasource\DynamicDataSource.java
+E:\springcloud\springboot\common\src\main\java\com\yanggy\springboot\jwt\JwtAuthenticationTokenFilter.java
+>>>>>>> c442902a8dc1cb10a93339e543cdd81a66e2f97b

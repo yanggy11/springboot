@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 /Users/derrick.yang/springcloud/springboot/api/src/main/java/com/yanggy/springboot/api/UserController.java
 /Users/derrick.yang/springcloud/springboot/api/src/main/java/com/yanggy/springboot/SpringBootApplication.java
 /Users/derrick.yang/springcloud/springboot/api/src/main/java/com/yanggy/springboot/api/AuthController.java
+=======
+E:\springcloud\springboot\api\src\main\java\com\yanggy\springboot\SpringBootApplication.java
+E:\springcloud\springboot\api\src\main\java\com\yanggy\springboot\api\AuthController.java
+E:\springcloud\springboot\api\src\main\java\com\yanggy\springboot\api\UserController.java
+>>>>>>> c442902a8dc1cb10a93339e543cdd81a66e2f97b
