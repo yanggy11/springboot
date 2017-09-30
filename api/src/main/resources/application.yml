@@ -28,7 +28,7 @@ management:
 
 # 主从库配置
 master:
-    url: jdbc:mysql://104.224.163.143:3306/test
+    url: jdbc:mysql://104.224.163.143:3306/yanggy
 #    url: jdbc:mysql://localhost:8066/TESTDB
     driver-class-name: com.mysql.jdbc.Driver
     username: root
@@ -41,7 +41,7 @@ master:
     minEvictableIdleTimeMillis: 300000
     type: com.alibaba.druid.pool.DruidDataSource
 slave:
-    url: jdbc:mysql://45.78.60.201:3306/test
+    url: jdbc:mysql://45.78.60.201:3306/yanggy
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: root
@@ -52,4 +52,7 @@ slave:
     timeBetweenEvictionRunsMillis: 60000
     minEvictableIdleTimeMillis: 300000
     type: com.alibaba.druid.pool.DruidDataSource
+qn:
+  access_key: xt_wx4mfltN0n86AavI2pGj5yXC95wQNRaE0gDFm
+  secret_key: 2hfrT_GCJzKJ1rns9EE2ATbuA_40xEsXTI0GCL
 

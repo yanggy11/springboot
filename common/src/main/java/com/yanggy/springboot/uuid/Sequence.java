@@ -1,5 +1,7 @@
 package com.yanggy.springboot.uuid;
 
+import com.relops.snowflake.Snowflake;
+
 /**
  * 基于Twitter的Snowflake算法实现分布式高效有序ID生产黑科技(sequence)
  *
@@ -158,9 +160,4 @@ public final class Sequence {
     protected long timeGen() {
         return SystemClock.now();
     }
-
-    public static void main(String[] args) {
-        System.out.println(new Sequence(1,1).nextId());
-    }
-
 }
