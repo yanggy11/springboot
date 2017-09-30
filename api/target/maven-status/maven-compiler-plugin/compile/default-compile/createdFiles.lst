@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-com/yanggy/springboot/api/AuthController.class
-com/yanggy/springboot/api/UserController.class
-com/yanggy/springboot/SpringBootApplication.class
-=======
-com\yanggy\springboot\api\UserController.class
-com\yanggy\springboot\api\AuthController.class
-com\yanggy\springboot\SpringBootApplication.class
->>>>>>> c442902a8dc1cb10a93339e543cdd81a66e2f97b
