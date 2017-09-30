@@ -4,12 +4,7 @@
 .project
 .settings/
 */target/**
-src/main/webapp/WEB-INF/classes/
-src/main/webapp/WEB-INF/lib/
-/bin
-.idea
-/logs/
-/jar-report-builder/logs/mobanker/*.log
-/jar-report-builder/mobanker/*.log
+log/**
+
 
 
