@@ -2,4 +2,5 @@ version: '3'
 services:
   springboot:
     image: yangguiyun/springboot
-
+    ports:
+      - "1993:1993"
