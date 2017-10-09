@@ -5,7 +5,7 @@ mybatis:
   mapper-locations: classpath:sql-mapper/*.xml
 
 server:
-  port: 1992
+  port: 1993
 
 #jwt parameters
 jwt:
