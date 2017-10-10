@@ -1,9 +1,8 @@
 package com.yanggy.springboot.api;
 
+import com.yanggy.springboot.dto.UserParam;
 import com.yanggy.springboot.entity.User;
-import com.yanggy.springboot.jwt.JwtAuthenticationRequest;
 import com.yanggy.springboot.service.AuthService;
-import io.swagger.annotations.ApiParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,14 +24,13 @@ public class AuthController {
     private AuthService authService;
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public ResponseEntity<?> createAuthenticationToken(
-            @ApiParam @RequestBody JwtAuthenticationRequest authenticationRequest) throws AuthenticationException {
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody UserParam userParam) throws AuthenticationException {
 
-        return authService.login(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+        return authService.login(userParam.getUsername(), userParam.getPassword());
     }
 
     @RequestMapping(value = "register", method = RequestMethod.POST)
-    public ResponseEntity<?> register(@ApiParam @RequestBody User user) throws AuthenticationException {
+    public ResponseEntity<?> register(@RequestBody User user) throws AuthenticationException {
         return authService.register(user);
     }
 }

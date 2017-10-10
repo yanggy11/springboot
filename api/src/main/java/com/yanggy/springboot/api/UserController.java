@@ -22,7 +22,7 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "userList", method = RequestMethod.POST)
-    public ResponseEntity<?> getUsers(@ApiParam @RequestBody UserParam userParam) throws AuthenticationException {
+    public ResponseEntity<?> getUsers(@RequestBody UserParam userParam) throws AuthenticationException {
         return userService.getUsers();
     }
 }
