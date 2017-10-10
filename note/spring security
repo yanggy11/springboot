@@ -1,5 +1,37 @@
-authentication procedure
+认证相关的核心类：
+1 身份信息的存放容器: SecurityContextHolder
+2 身份信息的抽象: Authentication
+3 身份认证器: AuthenticationManager
+4.身份认证方式: AuthenticationProvider
+5.最详细的用户信息： UserDetails
+6.加载用户信息的接口： UserDetailsService
 
-1.UsernamePasswordAuthenticationFilter
+Spring Security是如何完成身份认证的？
 
-2.
+1 用户名和密码被过滤器获取到，封装成 Authentication,通常情况下是 UsernamePasswordAuthenticationToken这个实现类。
+
+2 AuthenticationManager 身份管理器负责验证这个 Authentication
+    AuthenticationManager实例：ProviderManager
+    验证流程：
+        1）首先进入ProviderManager.authenticate(Authentication authentication)方法，
+        2）调用 DaoAuthenticationProvider.authenticate(Authentication authentication)方法,
+        3) 调用 DaoAuthenticationProvider.retrieveUser(String username,UsernamePasswordAuthenticationToken authentication)方法获取username对象，返回DaoAuthenticationProvider.authenticate(Authentication authentication)方法,
+        4）调用DefaultPreAuthenticationChecks.check(UserDetails user)方法验证用户状态（过期、锁定、禁用），
+        5）调用DaoAuthenticationProvider.additionalAuthenticationChecks(UserDetails userDetails,UsernamePasswordAuthenticationToken authentication)方法验证用户密码是否正确，返回
+        DaoAuthenticationProvider.authenticate(Authentication authentication)方法，
+        6）调用DefaultPostAuthenticationChecks.check(UserDetails user)方法,验证用户授权是否过期，
+        7）如果用户认证未缓存，则缓存，
+        8）认证成功。
+
+3 认证成功后， AuthenticationManager身份管理器返回一个被填充满了信息的（包括上面提到的权限信息，身份信息，细节信息，但密码通常会被移除） Authentication实例。
+
+4 SecurityContextHolder安全上下文容器将第3步填充了信息的 Authentication，通过SecurityContextHolder.getContext().setAuthentication(…)方法，设置到其中。
+
+@EnableWebSecurity 注解加载了WebSecurityConfiguration，AuthenticationConfiguration这两个核心配置类，也就是将spring security的职责划分为了配置安全信息，配置认证信息两部分。
+Spring配置类WebSecurityConfigurerAdapter
+1.方法
+ 1）configure(HttpSecurity http)定义了哪些URL路径应该被拦截
+
+spring security 核心过滤器
+
+安全过滤入口：springSecurityFillterChian

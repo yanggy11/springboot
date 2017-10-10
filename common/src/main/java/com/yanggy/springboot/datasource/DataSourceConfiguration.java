@@ -17,7 +17,7 @@ import java.util.Map;
  * Created by yangguiyun on 2017/9/28.
  */
 
-@Configuration
+//@Configuration
 public class DataSourceConfiguration {
 
     /**]

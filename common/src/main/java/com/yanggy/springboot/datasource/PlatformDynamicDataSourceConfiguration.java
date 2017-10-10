@@ -15,9 +15,9 @@ import java.util.Properties;
 /**
  * Created by yangguiyun on 2017/9/28.
  */
-@Configuration
-@EnableTransactionManagement(proxyTargetClass = true)
-@MapperScan(PlatformDynamicDataSourceConfiguration.MAPPER_PACKAGE_PATH)
+//@Configuration
+//@EnableTransactionManagement(proxyTargetClass = true)
+//@MapperScan(PlatformDynamicDataSourceConfiguration.MAPPER_PACKAGE_PATH)
 public class PlatformDynamicDataSourceConfiguration {
     private final static String MAPPER_LOCATIONS = "sql-mapper/*.xml";
     private final static String ENTITY_PACKAGE_PATH = "com.yanggy.springboot.entity";
