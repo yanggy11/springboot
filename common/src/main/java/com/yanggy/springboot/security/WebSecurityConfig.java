@@ -61,21 +61,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
                 // swagger权限放开
-//                .antMatchers(
-//                        HttpMethod.GET,
-//                        "/",
-//                        "/*.html",
-//                        "/favicon.ico",
-//                        "/**/*.html",
-//                        "/**/*.css",
-//                        "/**/*.js",
-//                        "/**/*.png"
-//                ).permitAll()
-//                .antMatchers("/webjars/**").permitAll()
-//                .antMatchers("/swagger-resources/**").permitAll().antMatchers("/v2/api-docs").permitAll()
-                // 允许用户登录、注册、退出接口无状态访问
+                .antMatchers(
+                        "/",
+                        "/*.html",
+                        "/favicon.ico",
+                        "/**/*.html",
+                        "/**/*.css",
+                        "/**/*.js",
+                        "/**/*.png","/beans","/info","/refresh","/env/**","/error","/autoconfig",
+                        "/mappings","/health/**",
+                        "/api/journal/**",
+                        "/api/notifications/**",
+                        "/auditevents","/api/applications/**","/trace"
+                ).permitAll()
                 .antMatchers("/auth/**").permitAll()
-                // 除上面外的所有请求全部需要鉴权认证
                 .anyRequest().authenticated();
         // 禁用缓存
         httpSecurity.headers().cacheControl();

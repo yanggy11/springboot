@@ -1,3 +1,6 @@
+server:
+  port: 1988
+
 spring:
   application:
     name: springboot
@@ -14,11 +17,14 @@ spring:
     timeBetweenEvictionRunsMillis: 60000
     minEvictableIdleTimeMillis: 300000
     type: com.alibaba.druid.pool.DruidDataSource
+  jackson:
+    serialization:
+      indent_output: true
+  boot:
+    admin:
+      url: http://localhost:${server.port}
 mybatis:
   mapper-locations: classpath:sql-mapper/*.xml
-
-server:
-  port: 1988
 
 #jwt parameters
 jwt:
@@ -31,7 +37,9 @@ jwt:
       path: auth
       refresh: refresh
       register: "auth/register"
-
+endpoints:
+  health:
+    sensitive: false
 security:
   basic:
     enabled: false

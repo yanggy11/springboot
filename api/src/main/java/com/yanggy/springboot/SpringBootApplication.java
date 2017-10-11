@@ -1,5 +1,6 @@
 package com.yanggy.springboot;
 
+import de.codecentric.boot.admin.config.EnableAdminServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -8,6 +9,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 
 @EnableTransactionManagement
+@EnableAdminServer
 @org.springframework.boot.autoconfigure.SpringBootApplication
 public class SpringBootApplication {
     public static void main(String[] args) {
