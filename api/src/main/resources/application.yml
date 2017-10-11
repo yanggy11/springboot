@@ -20,7 +20,7 @@ spring:
   jackson:
     serialization:
       indent_output: true
-  boot:
+  boot:  # spring boot admin server page
     admin:
       url: http://localhost:${server.port}
 mybatis:
@@ -32,11 +32,7 @@ jwt:
   secret: derrick.yang
   expiration: 604800
   tokenHead: "Bearer "
-  route:
-    authentication:
-      path: auth
-      refresh: refresh
-      register: "auth/register"
+
 endpoints:
   health:
     sensitive: false
@@ -44,6 +40,7 @@ security:
   basic:
     enabled: false
 management:
+  context-path: /${spring.application.name}
   security:
     enabled: false
 
@@ -73,6 +70,7 @@ slave:
     timeBetweenEvictionRunsMillis: 60000
     minEvictableIdleTimeMillis: 300000
     type: com.alibaba.druid.pool.DruidDataSource
+## 七牛云配置
 qn:
   access_key: xt_wx4mfltN0n86AavI2pGj5yXC95wQNRaE0gDFm
   secret_key: 2hfrT_GCJzKJ1rns9EE2ATbuA_40xEsXTI0GCL

@@ -57,29 +57,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity
                 // 由于使用的是JWT，我们这里不需要csrf
                 .csrf().disable()
+                //设置jwt过滤器
+                .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class)
                 // 基于token，所以不需要session
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
-                // swagger权限放开
                 .antMatchers(
                         "/",
                         "/*.html",
                         "/favicon.ico",
                         "/**/*.html",
+                        "/**/*.ttf",
+                        "/**/*.woff2",
                         "/**/*.css",
                         "/**/*.js",
-                        "/**/*.png","/beans","/info","/refresh","/env/**","/error","/autoconfig",
-                        "/mappings","/health/**",
+                        "/**/*.png",
+                        "/springboot/**",
                         "/api/journal/**",
                         "/api/notifications/**",
-                        "/auditevents","/api/applications/**","/trace"
+                        "/auditevents","/api/applications/**"
                 ).permitAll()
                 .antMatchers("/auth/**").permitAll()
                 .anyRequest().authenticated();
         // 禁用缓存
         httpSecurity.headers().cacheControl();
-        // 设置jwt token过滤器
-        httpSecurity
-                .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
     }
 }
