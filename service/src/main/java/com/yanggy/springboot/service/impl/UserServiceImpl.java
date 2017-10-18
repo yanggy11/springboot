@@ -1,5 +1,6 @@
 package com.yanggy.springboot.service.impl;
 
+import com.yanggy.springboot.entity.User;
 import com.yanggy.springboot.mapper.UserMapper;
 import com.yanggy.springboot.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created by yangguiyun on 2017/9/26.

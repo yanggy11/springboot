@@ -1,0 +1,11 @@
+docker run --name db.ql.corp \
+-e MYSQL_ROOT_PASSWORD="chengce243" \
+--hostname="db" \
+--memory="4096m"  \
+--restart="always" \
+--expose=3306 \
+--net="bridge" \
+-p 10000:3306 \
+-v /docker/docker_mapping/mysql_data/:/var/lib/mysql \
+-v /docker/docker_mapping/Apps/mysql/:/etc/mysql/ \
+-d mysql:lates
