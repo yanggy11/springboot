@@ -2,7 +2,7 @@ spring:
   application:
     name: springboot
   datasource:
-    url: jdbc:mysql://104.224.163.143:3306/yanggy
+    url: jdbc:mysql://192.168.1.100:3307/yanggy
     #    url: jdbc:mysql://localhost:8066/TESTDB
     driver-class-name: com.mysql.jdbc.Driver
     username: root
@@ -18,7 +18,7 @@ mybatis:
   mapper-locations: classpath:sql-mapper/*.xml
 
 server:
-  port: 1988
+  port: 8080
 
 #jwt parameters
 jwt:
