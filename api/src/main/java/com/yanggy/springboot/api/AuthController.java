@@ -3,6 +3,8 @@ package com.yanggy.springboot.api;
 import com.yanggy.springboot.dto.UserParam;
 import com.yanggy.springboot.entity.User;
 import com.yanggy.springboot.service.AuthService;
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -26,12 +28,15 @@ import java.util.stream.Stream;
 @RequestMapping("/auth/**")
 public class AuthController {
 
+    @Autowired
+    private AmqpTemplate amqpTemplate;
+
     @Resource
     private AuthService authService;
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody UserParam userParam) throws AuthenticationException {
-
+        amqpTemplate.convertAndSend("login:" + userParam.getUsername(),"hello");
         return authService.login(userParam.getUsername(), userParam.getPassword());
     }
 

@@ -1,7 +1,9 @@
 package com.yanggy.springboot;
 
 import de.codecentric.boot.admin.config.EnableAdminServer;
+import org.springframework.amqp.core.Queue;
 import org.springframework.boot.SpringApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -12,6 +14,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableAdminServer
 @org.springframework.boot.autoconfigure.SpringBootApplication
 public class SpringBootApplication {
+    @Bean
+    public Queue helloQueue() {
+        return new Queue("hello");
+    }
     public static void main(String[] args) {
         SpringApplication.run(SpringBootApplication.class, args);
     }

@@ -20,9 +20,14 @@ spring:
   jackson:
     serialization:
       indent_output: true
-  boot:  # spring boot admin server page
-    admin:
-      url: http://localhost:${server.port}
+#  boot:  # spring boot admin server page
+#    admin:
+#      url: http://localhost:${server.port}
+  rabbitmq:
+    host: 192.168.1.195
+    port: 5672
+    username: admin
+    password: admin
 mybatis:
   mapper-locations: classpath:sql-mapper/*.xml
 
