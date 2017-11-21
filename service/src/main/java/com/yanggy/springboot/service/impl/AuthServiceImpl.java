@@ -5,6 +5,7 @@ import com.yanggy.springboot.jwt.JWTUser;
 import com.yanggy.springboot.jwt.JwtTokenUtil;
 import com.yanggy.springboot.mapper.UserMapper;
 import com.yanggy.springboot.service.AuthService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +32,7 @@ public class AuthServiceImpl implements AuthService {
     private AuthenticationManager authenticationManager;
     @Resource
     private UserDetailsService userDetailsService;
-    @Resource
+    @Autowired
     private JwtTokenUtil jwtTokenUtil;
     @Resource
     private UserMapper userMapper;

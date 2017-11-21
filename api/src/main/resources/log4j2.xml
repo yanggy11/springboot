@@ -28,7 +28,7 @@
     </Appenders>
     <Loggers>
         <!-- show sql-->
-        <logger name="com.yanggy.springboot.mapper" level="DEBUG"/>
+        <!--<logger name="com.yanggy.springboot.mapper" level="DEBUG"/>-->
         <Root level="info">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="error"/>

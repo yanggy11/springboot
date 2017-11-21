@@ -20,7 +20,7 @@ import java.io.IOException;
  * @Description:
  */
 
-@Component("objectMessageConverter")
+//@Component("objectMessageConverter")
 public class ObjectMessageConverter extends AbstractJsonMessageConverter {
 
     private Logger log = LoggerFactory.getLogger(getClass());

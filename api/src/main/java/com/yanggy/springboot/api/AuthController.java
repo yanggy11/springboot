@@ -36,7 +36,7 @@ public class AuthController {
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody UserParam userParam) throws AuthenticationException {
-        amqpTemplate.convertAndSend("login:" + userParam.getUsername(),"hello");
+        amqpTemplate.convertAndSend("hello", userParam);
         return authService.login(userParam.getUsername(), userParam.getPassword());
     }
 
