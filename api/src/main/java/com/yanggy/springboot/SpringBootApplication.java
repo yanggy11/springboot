@@ -14,10 +14,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableAdminServer
 @org.springframework.boot.autoconfigure.SpringBootApplication
 public class SpringBootApplication {
-    @Bean
-    public Queue helloQueue() {
-        return new Queue("hello");
-    }
     public static void main(String[] args) {
         SpringApplication.run(SpringBootApplication.class, args);
     }
