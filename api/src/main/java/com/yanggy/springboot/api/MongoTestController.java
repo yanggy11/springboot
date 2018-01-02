@@ -1,17 +1,14 @@
 package com.yanggy.springboot.api;
 
-import com.mongodb.util.JSON;
-import com.sun.net.httpserver.Authenticator;
 import com.yanggy.springboot.es.EsTest;
 import com.yanggy.springboot.mongo.MongoTest;
 import com.yanggy.springboot.repository.EsTestRepository;
 import com.yanggy.springboot.repository.MongoTestRepository;
-import org.json.JSONObject;
+import org.elasticsearch.index.fielddata.plain.NonEstimatingEstimator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -34,15 +31,25 @@ public class MongoTestController {
 
     @PostMapping(value = "/auth/insert")
     public String insertMongoTest(@RequestBody MongoTest mongoTest) {
+        try {
         mongoTemplate.insert(mongoTest);
 
         EsTest esTest = new EsTest();
         esTest.setName("111");
         esTest.setPassword("111");
         esTest.setSex(1);
-        esTest.setId("1");
 
         esTestRepository.save(esTest);
+
+        Iterable i = esTestRepository.findAll();
+        i.forEach(esTest1 -> {
+            EsTest esTest2 = (EsTest)esTest1;
+            System.out.println(esTest1);
+            System.out.println(esTest1);
+        });
+        System.out.println(i);}catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return "SUCCESS";
     }
