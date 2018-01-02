@@ -15,6 +15,7 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
+
     int insertUser(User user);
     User selectById(@Param("id") long id);
     User findByName(@Param("username") String name);

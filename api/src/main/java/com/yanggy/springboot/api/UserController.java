@@ -30,4 +30,11 @@ public class UserController {
         rabbitTemplate.convertAndSend("hello",userService.getUsers());
         return userService.getUsers();
     }
+
+    public static void main(String[] args) {
+        String str = ",,";
+        String[] strings = str.split(",");
+
+        System.out.println(strings.length);
+    }
 }

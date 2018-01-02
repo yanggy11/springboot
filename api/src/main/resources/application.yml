@@ -6,8 +6,8 @@ spring:
     name: springboot
   datasource:
 #    url: jdbc:mysql://192.168.1.100:3307/yanggy
-    url: jdbc:mysql://47.92.32.170:3306/yanggy
-    #    url: jdbc:mysql://localhost:8066/TESTDB
+#    url: jdbc:mysql://47.92.32.170:3306/yanggy
+    url: jdbc:mysql://localhost:3306/yanggy
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: root
@@ -21,11 +21,27 @@ spring:
   jackson:
     serialization:
       indent_output: true
+  data:
+    mong odb:
+      host: localhost
+      username: yanggy11
+      password: yanggy11
+      database: yanggy  #mongodb://yanggy11:yanggy11@localhost:27017/yanggy
+    elasticsearch:
+      # 集群名
+      cluster-name: yanggy
+      # 连接节点,注意在集群中通信都是9300端口，否则会报错无法连接上！
+      cluster-nodes: localhost:9300
+#      # 是否本地连接
+#      local: false
+#      repositories:
+#        # 仓库中数据存储
+#        enabled: true
 #  boot:  # spring boot admin server page
 #    admin:
 #      url: http://localhost:${server.port}
   rabbitmq:
-    host: 192.168.1.195
+    host: 192.168.33.82
     port: 5672
     username: admin
     password: admin
