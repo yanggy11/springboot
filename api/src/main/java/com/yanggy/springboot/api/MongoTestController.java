@@ -1,5 +1,6 @@
 package com.yanggy.springboot.api;
 
+import com.yanggy.springboot.entity.Role;
 import com.yanggy.springboot.es.EsTest;
 import com.yanggy.springboot.mongo.MongoTest;
 import com.yanggy.springboot.repository.EsTestRepository;
@@ -10,6 +11,9 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author: yangguiyun
@@ -32,22 +36,36 @@ public class MongoTestController {
     @PostMapping(value = "/auth/insert")
     public String insertMongoTest(@RequestBody MongoTest mongoTest) {
         try {
-        mongoTemplate.insert(mongoTest);
+            mongoTemplate.insert(mongoTest);
 
-        EsTest esTest = new EsTest();
-        esTest.setName("111");
-        esTest.setPassword("111");
-        esTest.setSex(1);
+            EsTest esTest = new EsTest();
+            esTest.setName("111");
+            esTest.setPassword("111");
+            esTest.setSex(1);
+            List<Role> roles = new ArrayList<>();
+            Role role1 = new Role();
+            Role role2 = new Role();
+            role1.setRole("admin");
+            role1.setRoleName("管理员");
+            role1.setId(1);
+            role2.setRole("user");
+            role2.setRoleName("用户");
+            role2.setId(2);
 
-        esTestRepository.save(esTest);
+            roles.add(role1);
+            roles.add(role2);
+            esTest.setRoles(roles);
+            esTestRepository.save(esTest);
 
-        Iterable i = esTestRepository.findAll();
-        i.forEach(esTest1 -> {
-            EsTest esTest2 = (EsTest)esTest1;
-            System.out.println(esTest1);
-            System.out.println(esTest1);
-        });
-        System.out.println(i);}catch (Exception e) {
+            Iterable i = esTestRepository.findAll();
+            i.forEach(esTest1 -> {
+                EsTest esTest2 = (EsTest)esTest1;
+                System.out.println(esTest1);
+                System.out.println(esTest1);
+            });
+            System.out.println(i);
+
+        }catch (Exception e) {
             e.printStackTrace();
         }
 

@@ -1,7 +1,10 @@
 package com.yanggy.springboot.es;
 
+import com.yanggy.springboot.entity.Role;
 import lombok.Data;
 import org.springframework.data.elasticsearch.annotations.Document;
+
+import java.util.List;
 
 /**
  * @Author: yangguiyun
@@ -17,4 +20,6 @@ public class EsTest {
     private String name;
     private String password;
     private int sex;
+
+    private List<Role> roles;
 }
